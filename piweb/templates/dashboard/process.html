@@ -1,0 +1,26 @@
+<h2>Processes</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>USER</th>
+          <th>PID</th>
+          <th>%CPU</th>
+          <th>%MEM</th>
+          <th>TIME</th>
+          <th>COMMAND</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data%}
+        <tr>
+          <td>{{ row["USER"] }}</td>
+          <td>{{ row["PID"] }}</td>
+          <td>{{ row["%CPU"] }}</td>
+          <td>{{ row["%MEM"] }}</td>
+          <td>{{ row["TIME"] }}</td>
+          <td>{{ row["COMMAND"] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>

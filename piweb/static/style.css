@@ -1,0 +1,368 @@
+body{
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #4d90fe;
+}
+
+div, p {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    resize: none;
+    min-width: 400px;
+    min-height: 300px;
+    width: 98%;
+    border: 1px solid rgba(0,0,0, 0.12);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+/* ---- menu starts ---- */
+.menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4d90fe;
+    border-radius: 6px;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #4787ed;
+}
+
+/* ---- menu ends ---- */
+
+/* --- button starts --- */
+.button {
+	display: inline-block;
+	background-color: #f5f5f5;
+	background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+	background-image: -moz-linear-gradient(top,#f5f5f5,#f1f1f1);
+	background-image: -ms-linear-gradient(top,#f5f5f5,#f1f1f1);
+	background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
+	background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+	color: #444;
+	
+	border: 1px solid #dcdcdc;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 6px;
+	
+    cursor: default;
+    font-family: inherit;
+	font-size: 11px;
+	font-weight: 700;
+	text-align: center;
+	line-height: 27px;
+	min-width: 54px;
+	padding: 0 8px;
+	text-decoration: none;
+}
+
+.button:hover {
+	background-color: #F8F8F8;
+	background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+	background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
+	background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
+	background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+	background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+	
+	border: 1px solid #C6C6C6;
+	color: #333;
+	
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+button:focus{
+    outline: none;
+}
+
+/* blue */
+
+.button.blue {
+	background-color: #4D90FE;
+	background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: linear-gradient(top,#4d90fe,#4787ed);
+
+	border: 1px solid #3079ED;
+	color: white;
+}
+
+.button.blue:hover {
+	border: 1px solid #2F5BB7;
+	
+	background-color: #357AE8;
+	background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: linear-gradient(top,#4d90fe,#357ae8);
+	
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+	box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+/* --- button ends --- */
+
+/* --- footer starts --- */
+.footer {
+    font-size: 12px;
+    color: #444;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+/* --- footer ends --- */
+
+/* --- table starts ---*/
+table {
+    border-radius: 20px;
+    width: 100%;
+    border-spacing: 0px;
+}
+
+table th tr{
+    padding: 2px;
+}
+
+table th {
+    text-align: center;
+    background-color: #4d90fe;
+    color: #FFFFFF;
+    border-radius: 20px 20px 0px 0px;
+    padding:10px;
+}
+
+table tr:last-child td {
+    border-radius: 0px 0px 20px 20px;
+    border-spacing: 0px;
+}
+/* --- table ends --- */
+
+/* --- select starts --- */
+.select {
+    position: relative;
+    width: 350px;
+}
+  
+.select-text {
+    position: relative;
+    font-family: inherit;
+    background-color: transparent;
+    width: 350px;
+    padding: 10px 10px 10px 0;
+    font-size: inherit;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+  
+/* Remove focus */
+.select-text:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0, 0);
+}
+  
+/* Use custom arrow */
+.select .select-text {
+    appearance: none;
+    -webkit-appearance:none
+}
+  
+.select:after {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    /* Styling the down arrow */
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+}
+  
+/* LABEL */
+.select-label {
+    color: #999;
+    font-size: inherit;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+  
+/* active state */
+.select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
+    top: -20px;
+    font-size: inherit;
+    color: #4d90fe;
+}
+  
+  /* BOTTOM BARS */
+  .select-bar {
+      position: relative;
+      display: block;
+  }
+  
+  .select-bar:before, .select-bar:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: #2F80ED;
+      transition: 0.2s ease all;
+  }
+  
+  .select-bar:before {
+      left: 50%;
+  }
+  
+  .select-bar:after {
+      right: 50%;
+  }
+  
+  /* active state */
+  .select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+      width: 50%;
+  }
+  
+  /* HIGHLIGHTER */
+  .select-highlight {
+      position: absolute;
+      height: 60%;
+      width: 100px;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+  }
+/* --- select ends --- */
+
+/* --- input starts --- */
+.input-group 			  { 
+    position:relative; 
+  }
+  .input 				{
+    font-size:inherit;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:330px;
+    border:none;
+    border-bottom:1px solid rgba(0,0,0, 0.12);
+  }
+  .input:focus 		{ 
+      outline:none; 
+    }
+  
+  /* LABEL */
+  .input-label 				 {
+    color:#999; 
+    font-size:inherit;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  /* active state */
+  .input:focus ~ label, .input:valid ~ label 		{
+    top:-20px;
+    font-size:inherit;
+    color: #4d90fe;
+  }
+  
+  /* BOTTOM BARS */
+  .input-bar 	{ position:relative; display:block; }
+  .input-bar:before, .input-bar:after 	{
+    content:'';
+    height:2px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background: #2F80ED;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  .input-bar:before {
+    left:50%;
+  }
+  .input-bar:after {
+    right:50%; 
+  }
+  
+  /* active state */
+  .input:focus ~ .input-bar:before, .input:focus ~ .input-bar:after {
+    width:50%;
+  }
+  
+  /* HIGHLIGHTER */
+  .input-highlight {
+    position:absolute;
+    height:60%; 
+    width:100px; 
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  /* active state */
+  .input:focus ~ .input-highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+/* --- input ends --- */
+
+.div-container {
+    display: inline-flex;
+    padding-top:30px;
+    width:100%;
+}

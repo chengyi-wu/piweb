@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+   google.charts.load('current', {'packages':['gauge']});
+   google.charts.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+
+     var data = google.visualization.arrayToDataTable([
+       ['Label', 'Value'],
+       ['CPU', 30],
+     ]);
+
+     var options = {
+       width: 400, height: 120,
+       redFrom: 90, redTo: 100,
+       yellowFrom:75, yellowTo: 90,
+       minorTicks: 5
+     };
+
+     var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+     chart.draw(data, options);
+
+     setInterval(function() {
+       listProcess()
+        $.ajax({
+            type: "GET",
+            url: "/api/measure_temp",
+            datatype: "text",
+            success: function (val) {
+                data.setValue(0, 1, parseFloat(val));
+                chart.draw(data, options);         
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+       
+     }, 5000);
+   }
+
+   function listProcess() {
+    $.ajax({
+        type: "GET",
+        url: "/ps",
+        datatype: "html",
+        success: function (val) {
+          // document.getElementById("process_div"). = val
+          $("#process_div").html(val)       
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    })
+   }
+
+   $(document).ready(listProcess())
+</script>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+    <!-- <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <button class="btn btn-sm btn-outline-secondary">Share</button>
+        <button class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+    </div> -->
+  </div>
+
+  <div id="chart_div" class="my-4 w-100"></div>
+
+  <div class="progress progress-bar-striped" style="height: 30px;">
+    <div class="progress-bar" role="progressbar" style="width: {{ disk_used * 100 / disk_total }}%;" aria-valuenow="{{disk_used * 100 / disk_total}}" aria-valuemin="0" aria-valuemax="100">{{ disk_used }}</div>
+  </div>
+
+  <div id="process_div"></div>
+  </div>
+{% endblock %}
