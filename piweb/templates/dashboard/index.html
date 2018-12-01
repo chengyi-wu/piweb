@@ -15,7 +15,7 @@ Dashboard
 
      var data = google.visualization.arrayToDataTable([
        ['Label', 'Value'],
-       ['CPU', 30],
+       ['CPU', {{ temperature }}],
      ]);
 
      var options = {
@@ -30,7 +30,6 @@ Dashboard
      chart.draw(data, options);
 
      setInterval(function() {
-       listProcess()
         $.ajax({
             type: "GET",
             url: "/api/measure_temp",
@@ -53,16 +52,19 @@ Dashboard
         url: "/ps",
         datatype: "html",
         success: function (val) {
-          // document.getElementById("process_div"). = val
           $("#process_div").html(val)       
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);
         }
     })
+    
    }
 
-   $(document).ready(listProcess())
+   $(document).ready(listProcess());
+   setInterval(function() {
+     listProcess();
+   }, 5000);
 </script>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Dashboard</h1>
@@ -81,7 +83,7 @@ Dashboard
   <div id="chart_div" class="my-4 w-100"></div>
 
   <div class="progress progress-bar-striped" style="height: 30px;">
-    <div class="progress-bar" role="progressbar" style="width: {{ disk_used * 100 / disk_total }}%;" aria-valuenow="{{disk_used * 100 / disk_total}}" aria-valuemin="0" aria-valuemax="100">{{ disk_used }}</div>
+    <div class="progress-bar" role="progressbar" style="width: {{ disk_used / disk_total * 100 }}%;" aria-valuenow="{{disk_used / disk_total * 100 }}" aria-valuemin="0" aria-valuemax="100">{{ disk_used }}</div>
   </div>
 
   <div id="process_div"></div>

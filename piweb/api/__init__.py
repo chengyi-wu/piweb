@@ -10,7 +10,8 @@ def shell_exec(cmd:str):
 
 @bp.route("/measure_temp", methods=["GET"])
 def measure_temp():
-    return "10"
+    import random
+    return str(random.randint(0, 100))
     with open("/sys/class/thermal/thermal_zone0/temp", "r") as f:
         return "%d" % (int(f.read().strip()) // 1000)
 
