@@ -1,6 +1,9 @@
 from flask import Flask, Blueprint
 from subprocess import Popen, PIPE
-import shutil
+import shutil, json
+from .pms5003t import Sensor
+
+sensor = Sensor()
 
 bp = Blueprint("api", __name__, url_prefix="/api")
 
@@ -23,3 +26,19 @@ def disk_usage(disk):
     gb = 2 ** 30
     total, used, free = shutil.disk_usage(disk)
     return "%.2f %.2f %.2f" % (total / gb, used / gb, free / gb)
+
+@bp.route("/pms", methods=["GET"])
+def pms():
+    data = {}
+    data['pm1_cf'] = "N/A"
+    data['pm25_cf'] = "N/A"
+    data['pm10_cf'] = "N/A"
+    data['temperature'] = "N/A"
+    data['humidity'] = "N/A"
+    try:
+        sensor.open()
+        data = sensor.read()
+        sensor.close()
+    except:
+        pass
+    return json.dumps(data)
