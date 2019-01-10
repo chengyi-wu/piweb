@@ -35,7 +35,7 @@ class Sensor():
         self.serial.close()
 
     def read_bytes(self, data, idx, size = 2):
-        return int(data[idx : idx + size], 16)
+        return int("".join(data[idx : idx + size]), 16)
 
     def read(self):
         data = self.serial.read(32)
